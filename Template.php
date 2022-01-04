@@ -27,84 +27,87 @@ class Template {
 	protected $_top;
 	protected $_bottom;
   protected $_title;
-  protected $_headSection = "";
-  protected $_bottomSection = "";
+  protected $_headElements = array();
+  protected $_bottomElements = array();
 
-function __construct($title = "Default") {
-	$this->_title = $title;
-}
+  function __construct($title = "Default") {
+	  $this->_title = $title;
+  }
 
-/**
-* function addHeadElement($include)
-*
-* Used to add things to the <head> section of an HTML doc.
-* For example, it is typical to add CSS <link> tags
-* and <script> tags in the <head> section.
-*
-* This must be called __before__ finalizeTopSection and
-* will typically be called once for each <link> or <script>
-* that will appear in the <head> section.
-*
-*
-* @param string $include  The element to include
-*/
+  /**
+  * function addHeadElement($include)
+  *
+  * Used to add things to the <head> section of an HTML doc.
+  * For example, it is typical to add CSS <link> tags
+  * and <script> tags in the <head> section.
+  *
+  * This must be called __before__ finalizeTopSection and
+  * will typically be called once for each <link> or <script>
+  * that will appear in the <head> section.
+  *
+  *
+  * @param string $include  The element to include
+  */
 
-function addHeadElement($include) {
-  $this->_headSection .= $include . "\n";
-} //end function addHeadElement
+  function addHeadElement($include) {
+    $this->_headElements[] = $include . "\n";
+  } //end function addHeadElement
 
-function finalizeTopSection() {
-	$returnVal = "";
-	$returnVal .= "<!doctype html>\n";
-	$returnVal .= "<html lang=\"en\">\n";
-	$returnVal .= "<head><title>";
-	$returnVal .= $this->_title;
-	$returnVal .= "</title>\n";
-  $returnVal .= $this->_headSection;
-	$returnVal .= "</head>\n";
-	$returnVal .= "<body>\n";
+  function finalizeTopSection() {
+	  $returnVal = "";
+	  $returnVal .= "<!doctype html>\n";
+	  $returnVal .= "<html lang=\"en\">\n";
+	  $returnVal .= "<head><title>";
+	  $returnVal .= $this->_title;
+	  $returnVal .= "</title>\n";
+    foreach ($this->_headElements as $elm) {
+      $returnVal .= $elm;
+    }
+    $returnVal .= $this->_headSection;
+	  $returnVal .= "</head>\n";
+	  $returnVal .= "<body>\n";
 
-	$this->_top = $returnVal;
+	  $this->_top = $returnVal;
 
-} //end function finalizeTopSection
+  } //end function finalizeTopSection
 
-/**
-* function addBottomElement($include)
-*
-* Used to add things to the bottom section of an HTML doc.
-* For example, some libraries require JavaScript right 
-* before the closing </body> tag.
-*
-* This must be called __before__ finalizeBottomSection and
-* will typically be called once for each <script>
-* that will appear in the section.
-*
-*
-* @param string $include  The element to include
-*/
+  /**
+  * function addBottomElement($include)
+  *
+  * Used to add things to the bottom section of an HTML doc.
+  * For example, some libraries require JavaScript right 
+  * before the closing </body> tag.
+  *
+  * This must be called __before__ finalizeBottomSection and
+  * will typically be called once for each <script>
+  * that will appear in the section.
+  *
+  *
+  * @param string $include  The element to include
+  */
 
-function addBottomElement($include) {
-  $this->_bottomSection .= $include . "\n";
-} //end function addHeadElement
+  function addBottomElement($include) {
+    $this->_bottomSection .= $include . "\n";
+  } //end function addHeadElement
 
+  function finalizeBottomSection() {
+	  $returnVal = "";
+    foreach ($this->_bottomElements as $elm) {
+      $returnVal .= $elm;
+    }
+	  $returnVal .= "</body>\n";
+	  $returnVal .= "</html>\n";
 
-function finalizeBottomSection() {
-	$returnVal = "";
-  $returnVal .= $this->_bottomSection;
-	$returnVal .= "</body>\n";
-	$returnVal .= "</html>\n";
+	  $this->_bottom = $returnVal;
+  } //end function finalizeBottomSection
 
-	$this->_bottom = $returnVal;
+  function getTopSection() {
+	  return $this->_top;
+  }
 
-} //end function finalizeBottomSection
-
-function getTopSection() {
-	return $this->_top;
-}
-
-function getBottomSection() {
-	return $this->_bottom;
-}
+  function getBottomSection() {
+	  return $this->_bottom;
+  }
 
 } // end class
 
