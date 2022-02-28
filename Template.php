@@ -24,14 +24,15 @@
 
 class Template {
 
-	protected $_top;
-	protected $_bottom;
+  protected $_top;
+  protected $_bottom;
   protected $_title;
   protected $_headElements = array();
   protected $_bottomElements = array();
+  protected $_headSection = "";
 
   function __construct($title = "Default") {
-	  $this->_title = $title;
+    $this->_title = $title;
   }
 
   /**
@@ -54,20 +55,20 @@ class Template {
   } //end function addHeadElement
 
   function finalizeTopSection() {
-	  $returnVal = "";
-	  $returnVal .= "<!doctype html>\n";
-	  $returnVal .= "<html lang=\"en\">\n";
-	  $returnVal .= "<head><title>";
-	  $returnVal .= $this->_title;
-	  $returnVal .= "</title>\n";
+    $returnVal = "";
+    $returnVal .= "<!doctype html>\n";
+    $returnVal .= "<html lang=\"en\">\n";
+    $returnVal .= "<head><title>";
+    $returnVal .= $this->_title;
+    $returnVal .= "</title>\n";
     foreach ($this->_headElements as $elm) {
       $returnVal .= $elm;
     }
     $returnVal .= $this->_headSection;
-	  $returnVal .= "</head>\n";
-	  $returnVal .= "<body>\n";
+    $returnVal .= "</head>\n";
+    $returnVal .= "<body>\n";
 
-	  $this->_top = $returnVal;
+    $this->_top = $returnVal;
 
   } //end function finalizeTopSection
 
@@ -91,22 +92,22 @@ class Template {
   } //end function addHeadElement
 
   function finalizeBottomSection() {
-	  $returnVal = "";
+    $returnVal = "";
     foreach ($this->_bottomElements as $elm) {
       $returnVal .= $elm;
     }
-	  $returnVal .= "</body>\n";
-	  $returnVal .= "</html>\n";
+    $returnVal .= "</body>\n";
+    $returnVal .= "</html>\n";
 
-	  $this->_bottom = $returnVal;
+    $this->_bottom = $returnVal;
   } //end function finalizeBottomSection
 
   function getTopSection() {
-	  return $this->_top;
+    return $this->_top;
   }
 
   function getBottomSection() {
-	  return $this->_bottom;
+    return $this->_bottom;
   }
 
 } // end class
