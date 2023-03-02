@@ -61,11 +61,11 @@ class Page {
     $returnVal .= "<!doctype html>" . PHP_EOL;
     $returnVal .= "<html lang=\"" . $this->_lang . "\">" . PHP_EOL;
     $returnVal .= "<head>" . PHP_EOL;
-    $returnVal .= "\t" . "<title>";
+    $returnVal .= "<title>";
     $returnVal .= $this->_title;
     $returnVal .= "</title>" . PHP_EOL;
     foreach ($this->_headElements as $elm) {
-      $returnVal .= "\t" . $elm;
+      $returnVal .= $elm;
     }
     $returnVal .= $this->_headSection;
     $returnVal .= "</head>" . PHP_EOL;
@@ -98,7 +98,7 @@ class Page {
   function freezeBottomSection() {
     $returnVal = "";
     foreach ($this->_bottomElements as $elm) {
-      $returnVal .= "\t" . $elm;
+      $returnVal .= $elm;
     }
     $returnVal .= "</body>" . PHP_EOL;
     $returnVal .= "</html>" . PHP_EOL;
