@@ -1,3 +1,3 @@
-# phpclasses_template
-See testTemplate.php for usage instructions.
-Also note comments within Template.php too.
+# php class for creating a basic HTML page
+See testpage.php for usage instructions.
+Also note comments within Page.class.php too.
