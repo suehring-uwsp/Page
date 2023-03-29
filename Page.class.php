@@ -122,6 +122,22 @@ class Page {
     return $this->_bottom;
   }
 
+  function getTopFrozen() {
+    return $this->_topFrozen;
+  }
+
+  function setTopFrozen(boolean $status) {
+    $this->_topFrozen = $status;
+  }
+
+  function getBottomFrozen() {
+    return $this->_bottomFrozen;
+  }
+
+  function setBottomFrozen(boolean $status) {
+    $this->_bottomFrozen = $status;
+  }
+
 } // end class
 
 ?>
