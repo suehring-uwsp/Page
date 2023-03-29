@@ -72,7 +72,7 @@ class Page {
     $returnVal .= "<body>" . PHP_EOL;
 
     $this->_top = $returnVal;
-    $this->_topFrozen = true;
+    $this->setTopFrozen(true);
 
   } //end function freezeTopSection
 
@@ -104,19 +104,19 @@ class Page {
     $returnVal .= "</html>" . PHP_EOL;
 
     $this->_bottom = $returnVal;
-    $this->_bottomFrozen = true;
+    $this->setBottomFrozen(true);
 
   } //end function freezeBottomSection
 
   function getTopSection() {
-    if ($this->_topFrozen === false) {
+    if ($this->getTopFrozen() === false) {
       $this->freezeTopSection();
     }
     return $this->_top;
   }
 
   function getBottomSection() {
-    if ($this->_bottomFrozen === false) {
+    if ($this->getBottomFrozen() === false) {
       $this->freezeBottomSection();
     }
     return $this->_bottom;
