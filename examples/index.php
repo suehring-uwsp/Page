@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../Page.class.php");
+require_once(__DIR__ . "/../Page.php");
 
 $page = new Page("Page");
 

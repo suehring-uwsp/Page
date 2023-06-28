@@ -1,6 +1,6 @@
 <?php
 
-require_once("Page.class.php");
+require_once("Page.php");
 
 $page = new Page("Page");
 

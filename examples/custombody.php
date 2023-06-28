@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../Page.class.php");
+require_once(__DIR__ . "/../Page.php");
 
 $page = new Page("Example Page with JS and CSS");
 // Note that neither of these files contain anything in the page class examples
