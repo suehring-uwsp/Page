@@ -1,6 +1,6 @@
 <?php
 
-namespace NamespaceName\Page;
+namespace NamespaceName;
 /**
 *
 * Page class
