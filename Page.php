@@ -10,6 +10,7 @@ namespace MyNamespace;
 *****************************
 * Usage:
 *****************************
+*   require_once("Page.php");
 *   $page = new MyNamespace\Page("My Page");
 *
 *   print $page->getTopSection();
@@ -19,6 +20,7 @@ namespace MyNamespace;
 *****************************
 *   Alternate Usage (with external CSS):
 *****************************
+*   require_once("Page.php");
 *   $page = new MyNamespace\Page("My Page Uses CSS");
 *
 *   $page->addHeadElement("<link rel=\"stylesheet\" src=\"style.css\">");
