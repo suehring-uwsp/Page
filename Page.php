@@ -1,6 +1,6 @@
 <?php
 
-namespace NamespaceName;
+namespace MyNamespace;
 /**
 *
 * Page class
@@ -10,7 +10,7 @@ namespace NamespaceName;
 *****************************
 * Usage:
 *****************************
-*   $page = new Page("My Page");
+*   $page = new MyNamespace\Page("My Page");
 *
 *   print $page->getTopSection();
 *   print "<h1>Some page-specific HTML goes here</h1>" . PHP_EOL;
@@ -19,7 +19,7 @@ namespace NamespaceName;
 *****************************
 *   Alternate Usage (with external CSS):
 *****************************
-*   $page = new Page("My Page Uses CSS");
+*   $page = new MyNamespace\Page("My Page Uses CSS");
 *
 *   $page->addHeadElement("<link rel=\"stylesheet\" src=\"style.css\">");
 *
