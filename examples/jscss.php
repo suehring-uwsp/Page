@@ -5,7 +5,7 @@ require_once(__DIR__ . "/../Page.php");
 $page = new MyNamespace\Page("Example Page with JS and CSS");
 
 // Note that neither of these files contain anything in the page class examples
-// But this is how you'd add js and css.  One addHeadElement() call per file is best practice.
+// But this is how you'd add js and css.  One addHeadElement() call per line is best practice.
 $page->addHeadElement("<script src=\"js/script.js\"></script>");
 $page->addHeadElement("<link rel=\"stylesheet\" href=\"css/styles.css\">");
 
